@@ -1,0 +1,14 @@
+SortByColumns(Search([@msft], TextSearchBox1.Text, "Address","Category","Contact"), "Address", If(SortDescending1, Descending, Ascending))
+Select(Parent)
+Select(Parent)
+ThisItem.Contact
+ThisItem.Category
+ThisItem.Address
+ThisItem.Image
+NewForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+UpdateContext({SortDescending1: !SortDescending1})
+Refresh([@msft])
+Remove([@msft], BrowseGallery1.Selected); If (IsEmpty(Errors([@msft], BrowseGallery1.Selected)), Back())
+EditForm(EditForm1);Navigate(EditScreen1, ScreenTransition.None)
+Navigate(BrowseScreen1, ScreenTransition.None)
+false
